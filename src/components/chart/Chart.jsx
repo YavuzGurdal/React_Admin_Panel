@@ -1,7 +1,7 @@
 import './chart.scss'
 import { AreaChart, Area, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-const Chart = () => {
+const Chart = ({ aspect, title }) => {
     const data = [
         { name: "January", Total: 1200 },
         { name: "February", Total: 2100 },
@@ -13,8 +13,10 @@ const Chart = () => {
 
     return (
         <div className='chart'>
-            <div className="title">Last 6 Months (Revenue)</div>
-            <ResponsiveContainer width="100%" aspect={2 / 1}>
+            <div className="title">{title}</div>
+            {/* <div className="title">Last 6 Months (Revenue)</div> */}
+            <ResponsiveContainer width="100%" aspect={aspect}>
+                {/* <ResponsiveContainer width="100%" aspect={2 / 1}> */}
                 {/* aspect={2/1} boy olarak genisliginin yarisi yap demek. bu sekilde oransal deger verebilirim */}
                 <AreaChart width={730} height={250} data={data}
                     margin={{ top: 10, right: 30, left: 30, bottom: 0 }}>
